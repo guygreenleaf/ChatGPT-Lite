@@ -1,0 +1,70 @@
+{
+  "name": "chatgpt-lite",
+  "displayName": "ChatGPT Lite",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:chatgpt-lite-sidebar"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "chatgpt-lite-sidebar-view",
+          "title": "chatgpt-ite",
+          "icon": "media/chat.svg"
+        }
+      ]
+    },
+    "views": {
+      "chatgpt-lite-sidebar-view": [
+        {
+          "type": "webview",
+          "id": "chatgpt-lite-sidebar",
+          "name": "chatgpt-lite",
+          "icon": "media/chat.svg",
+          "contextualTitle": "chatgpt-lite"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "chatgpt-lite.openChatGPTLite",
+        "title": "Open ChatGPT Lite"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "concurrently \"cd src/app/cgptlite-app && npm run build \" \"webpack --watch\"",
+    "package": "webpack --mode production --devtool hidden-source-map ",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.76.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "@vscode/test-electron": "^2.2.3",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
