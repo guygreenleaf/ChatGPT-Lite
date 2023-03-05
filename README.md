@@ -1,6 +1,6 @@
 # chatgpt-lite README
 
-A VS Code Extension to use both the free-tier and paid-tier ChatGPT. No data mining or collection, no BS, just ChatGPT like you'd expect.
+A VS Code Extension to utilize ChatGPT in a side panel. No more switching between tabs, no data mining or collection, no BS, just ChatGPT like you'd expect.
 
 ## Features
 
@@ -33,8 +33,6 @@ TBD
 TBD
 
 ## Release Notes
-
-TBD
 
 ### 1.0.0
 
