@@ -2,7 +2,7 @@ import '../styles/Common.css';
 
 function Request(props){
     return (
-        <div className="flexCenter">
+      <div className="flexCenter">
         <div>        
           <textarea className='mVH' value={props.prompt} onChange={(e) => props.setPrompt(e.target.value)} />
         </div>

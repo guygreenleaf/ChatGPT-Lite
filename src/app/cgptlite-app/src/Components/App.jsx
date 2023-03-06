@@ -38,7 +38,7 @@ function App() {
           ? 
           (<></>)             
           :
-          (<>{<Response response={response} isLoading={isLoading} />}</>) 
+          (<div>{<Response response={response} isLoading={isLoading} />}</div>) 
         }
       </div>
     </div>
