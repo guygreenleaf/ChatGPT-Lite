@@ -12,9 +12,8 @@ export default class OpenAIContext{
         const response = await this.openAIContext.createChatCompletion({
           model: "gpt-3.5-turbo",
           messages: [{role:"user", content:prompt}] ,
-          temperature: 0.7,
+          temperature: 0.4,
           max_tokens: 256,
-          top_p: 1,
           frequency_penalty: 0,
           presence_penalty: 0,
       });
