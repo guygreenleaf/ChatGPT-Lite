@@ -10,7 +10,6 @@
     "Other"
   ],
   "activationEvents": [
-    "onView:chatgpt-lite-sidebar"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -34,12 +33,7 @@
         }
       ]
     },
-    "commands": [
-      {
-        "command": "chatgpt-lite.openChatGPTLite",
-        "title": "Open ChatGPT Lite"
-      }
-    ]
+    "commands": []
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

@@ -10,15 +10,6 @@ export function activate(context: vscode.ExtensionContext) {
 			sidebarProvider
 	  	)
 	);
-
-	let disposable = vscode.commands.registerCommand('chatgpt-lite.openChatGPTLite', () => {
-		vscode.window.showInformationMessage('Hello!');
-	});
-
-	context.subscriptions.push(disposable);
-
-
-	
 }
 
 // This method is called when your extension is deactivated
