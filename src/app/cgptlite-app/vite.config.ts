@@ -5,12 +5,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [
     react(),
-    cssInjectedByJsPlugin(),
+    cssInjectedByJsPlugin()
   ],
   build: {
     rollupOptions: {
       input: {
-        app: './src/main.jsx',
+        app: './src/main.tsx',
       },
       output:{
         dir:"../../../dist/app",

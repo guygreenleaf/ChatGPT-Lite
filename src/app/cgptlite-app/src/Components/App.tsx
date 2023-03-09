@@ -19,7 +19,7 @@ function App() {
         setHasPrompted(true);
         setIsLoading(true);
         let res = await aiContext.SubmitPrompt(prompt);
-        setResponse(res);
+        setResponse(res ?? "Error retrieving response. Please check your API Key and Creativity settings in the 'Configure' menu.");
     }catch(e){
       setResponse("Error retrieving response. Please check your API Key and Creativity settings in the 'Configure' menu.");
     }finally{

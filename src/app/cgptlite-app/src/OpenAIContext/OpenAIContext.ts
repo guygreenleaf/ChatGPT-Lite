@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from "openai";
 export default class OpenAIContext{
     constructor(){}
 
-    async SubmitPrompt(prompt){
+    async SubmitPrompt(prompt:string){
 
       let openAIContext = new OpenAIApi(new Configuration({
         apiKey: `${localStorage.getItem('openAiApiKey')}`
@@ -17,6 +17,6 @@ export default class OpenAIContext{
           frequency_penalty: 0,
           presence_penalty: 0,
       });
-      return response.data.choices[0].message.content;
+      return response.data.choices[0].message?.content;
     }
 }
