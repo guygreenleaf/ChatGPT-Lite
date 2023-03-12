@@ -10,7 +10,7 @@ export function Request(props:Props){
     return (
       <div className="flexCenter">
         <div>        
-          <textarea className='mVH' value={props.prompt} onChange={(e) => props.setPrompt(e.target.value)} />
+          <textarea placeholder='Enter a Prompt' className='mVH' value={props.prompt} onChange={(e) => props.setPrompt(e.target.value)} />
         </div>
         <div>        
           <button onClick={() => props.submitPrompt()}>

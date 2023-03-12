@@ -5,9 +5,11 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
   _view?: vscode.WebviewView;
   _doc?: vscode.TextDocument;
 
-  constructor(private readonly _extensionUri: vscode.Uri) {}
+  constructor(private readonly _extensionUri: vscode.Uri, private readonly _ctx:vscode.ExtensionContext) {}
 
   public resolveWebviewView(webviewView: vscode.WebviewView) {
+    this._ctx.globalState.setKeysForSync(["apiKey", "creativity"]); 
+  
     this._view = webviewView;
 
     webviewView.webview.options = {
@@ -20,6 +22,26 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 
     webviewView.webview.onDidReceiveMessage(async (data) => {
       switch (data.type) {    
+        case "setState": {
+          this._ctx.globalState.update("apiKey", data.apiKey);
+          this._ctx.globalState.update("creativity", data.creativity);
+          break;
+        }
+        case "getState":{
+          this._view?.webview.postMessage({
+            type:"getState",
+            apiKey: this._ctx.globalState.get("apiKey") ?? "",
+            creativity: this._ctx.globalState.get("creativity") ?? ""
+          });
+          return;
+        }
+        case "isStateful":{
+          this._view?.webview.postMessage({
+            type:"isStateful",
+            isStateful: ((this._ctx.globalState.get("apiKey") as string).length > 0 && (this._ctx.globalState.get("creativity") as string).length > 0) 
+          });
+          break;
+        }
         case "onInfo": {
           if (!data.value) {
             return;
@@ -62,8 +84,9 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			</head>
       <body>
-        <div id="root"></div>
-				<script nonce="${nonce}" src="${scriptUri}"></script>
+      <div id="root"></div>
+        <script nonce="${nonce}" src="${scriptUri}">
+        </script>
 			</body>
 			</html>`;
   }

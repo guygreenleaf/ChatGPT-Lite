@@ -16,7 +16,7 @@
       "activitybar": [
         {
           "id": "chatgpt-lite-sidebar-view",
-          "title": "chatgpt-ite",
+          "title": "chatgpt-lite",
           "icon": "media/chat.svg"
         }
       ]
